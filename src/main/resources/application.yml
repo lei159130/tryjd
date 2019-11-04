@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active:
+    - dev
+  
+logging:
+  level:
+    com.raylee.foods.dao.mapping: debug
