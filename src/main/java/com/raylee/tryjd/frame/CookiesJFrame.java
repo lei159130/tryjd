@@ -14,7 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.raylee.tryjd.utils.HttpRequestUtils;
+import com.raylee.tryjd.service.TryJDService;
 
 @Component
 public class CookiesJFrame extends JFrame implements ActionListener {
@@ -22,6 +22,8 @@ public class CookiesJFrame extends JFrame implements ActionListener {
 
 	@Autowired
 	ReptileJFrame reptileJFrame;
+	@Autowired
+	TryJDService tryJDService;
 
 	private JLabel label = new JLabel("Cookies:");
 	private JTextArea textArea = new JTextArea();
@@ -50,7 +52,7 @@ public class CookiesJFrame extends JFrame implements ActionListener {
 			JOptionPane.showMessageDialog(null, "cookies不能为空!", "错误", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
-		HttpRequestUtils.setCookies(cookies);
+		tryJDService.setCookies(cookies);
 		this.setVisible(false);
 		reptileJFrame.init();
 	}
