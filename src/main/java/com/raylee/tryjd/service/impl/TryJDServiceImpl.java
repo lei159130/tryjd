@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
-import com.raylee.tryjd.config.CacheManager;
+import com.raylee.tryjd.config.ParamsCache;
 import com.raylee.tryjd.service.TryJDService;
 
 /**
@@ -23,33 +23,33 @@ import com.raylee.tryjd.service.TryJDService;
 public class TryJDServiceImpl implements TryJDService {
 
 	@Autowired
-	CacheManager cacheManager;
+	ParamsCache paramsCache;
 
 	@Override
 	public void setCookies(String cookies) {
-		cacheManager.put("cookies", cookies);
+		paramsCache.put("cookies", cookies);
 	}
 
 	@Override
 	public Map<String, String> getCookies() {
-		return JSON.parseObject(cacheManager.get("cookies")).toJavaObject(new TypeReference<Map<String, String>>() {
+		return JSON.parseObject(paramsCache.get("cookies")).toJavaObject(new TypeReference<Map<String, String>>() {
 			;
 		});
 	}
 
 	@Override
 	public List<String> getCIds() {
-		return JSON.parseArray(cacheManager.get("cids"), String.class);
+		return JSON.parseArray(paramsCache.get("cids"), String.class);
 	}
 
 	@Override
 	public List<String> getTypes() {
-		return JSON.parseArray(cacheManager.get("types"), String.class);
+		return JSON.parseArray(paramsCache.get("types"), String.class);
 	}
 
 	@Override
 	public List<String> getStates() {
-		return JSON.parseArray(cacheManager.get("states"), String.class);
+		return JSON.parseArray(paramsCache.get("states"), String.class);
 	}
 
 }

@@ -16,6 +16,9 @@ import com.raylee.tryjd.thread.ReptileThread;
 
 @Component
 public class ReptileJFrame extends JFrame implements ActionListener {
+	public ReptileJFrame() {
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Autowired
@@ -38,10 +41,6 @@ public class ReptileJFrame extends JFrame implements ActionListener {
 		progressBar.setIndeterminate(true);
 		progressBar.setStringPainted(true);
 		progressBar.setString("加载中...");
-
-		System.out.println("---------------CIDS:" + tryJDService.getCIds().toString());
-		System.out.println("---------------TYPES:" + tryJDService.getTypes().toString());
-		System.out.println("---------------STATES:" + tryJDService.getStates().toString());
 
 		this.getContentPane().add(button, BorderLayout.NORTH);
 		this.getContentPane().add(progressBar, BorderLayout.CENTER);
