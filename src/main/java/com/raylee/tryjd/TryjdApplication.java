@@ -1,16 +1,14 @@
 package com.raylee.tryjd;
 
-import org.springframework.boot.SpringApplication;
+import com.raylee.tryjd.fxml.view.CookiesFxmlView;
+import de.felixroske.jfxsupport.AbstractJavaFxApplicationSupport;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.EnableCaching;
 
-@EnableCaching
 @SpringBootApplication
-public class TryjdApplication {
+public class TryjdApplication extends AbstractJavaFxApplicationSupport {
 
-	public static void main(String[] args) {
-		System.setProperty("java.awt.headless", "false");
-		SpringApplication.run(TryjdApplication.class, args);
-	}
+    public static void main(String[] args) {
+        launch(TryjdApplication.class, CookiesFxmlView.class, args);
+    }
 
 }
