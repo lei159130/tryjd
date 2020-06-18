@@ -1,5 +1,9 @@
 package com.raylee.tryjd.service;
 
+import com.raylee.tryjd.model.dto.Goods;
+import com.raylee.tryjd.model.dto.MenuDto;
+import com.raylee.tryjd.model.vo.QueryVo;
+
 import java.util.List;
 import java.util.Map;
 
@@ -36,19 +40,27 @@ public interface TryJDService {
      *
      * @return
      */
-    List<String> getCIds();
+    List<MenuDto> getCIds();
 
     /**
      * 获取商品试用类型
      *
      * @return
      */
-    List<String> getTypes();
+    List<MenuDto> getTypes();
 
     /**
      * 获取商品试用状态
      *
      * @return
      */
-    List<String> getStates();
+    List<MenuDto> getStates();
+
+    /**
+     * 获取商品
+     *
+     * @param vo
+     * @return
+     */
+    List<Goods> getGoods(QueryVo vo);
 }
